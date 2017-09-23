@@ -1,5 +1,6 @@
 package com.example.azhch.study;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,6 +27,9 @@ public class FrmMessage extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
+        Intent intent = new Intent();
+        intent.putExtra("result", "Hello World!");
+        setResult(1, intent);
         this.finish();
     }
 }

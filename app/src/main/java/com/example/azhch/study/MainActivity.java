@@ -30,14 +30,24 @@ public class MainActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView textView = (TextView) findViewById(R.id.view1);
-                textView.setText("Hello World!");
+//                TextView textView = (TextView) findViewById(R.id.view1);
+//                textView.setText("Hello World!");
 
                 Intent intent = new Intent();
                 intent.setClass(view.getContext(), FrmMessage.class);
-                startActivity(intent);
+//                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            TextView textView = (TextView) findViewById(R.id.view1);
+            String result = data.getStringExtra("result");
+            textView.setText(textView.getText() + result);
+        }
     }
 
 //    @Override
